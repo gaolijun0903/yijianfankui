@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, target-densitydpi=device-dpi, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>意见反馈</title>
+	
+	<style type="text/css">
+[v-cloak] {display: none;}
+html, body { position: relative; height: 100%;}
+body { background: #fafafa; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; color:#000; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+*{padding: 0;	margin: 0;	box-sizing: border-box;}
+ul,li{	list-style: none;} 
+a{ text-decoration: none; }
+.wait {width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 10; background-color: #fff; z-index: 99999 background-color: #eee; transition:opacity .3s linear;}
+.wait img {display: block; margin: 60% auto; width: 20%; height: auto;}
+
+.types-wrapper,.detailwrapper{
+	position: absolute; width: 100%; height: 100%;
+	top: 0; left: 0; right: 0; bottom: 0;
+	background: #EAEAEA;
+}	
+.routeritem{ position: relative;
+	margin-top: 0.34rem;
+	padding: 0 0.32rem;
+	height: 1.2rem;
+	font-size: 0.34rem; color: #323232;
+	line-height: 1.2rem; background: #FFFFFF; border-top: 0.01rem solid #E1E1E1; border-bottom: 0.01rem solid #E1E1E1;
+}	
+.routeritem:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.mtop24{ margin-top: 0.24rem; }
+/*.text{
+	display: inline-block; vertical-align: middle;
+}*/
+.arrow{ position: absolute; top: 0.47rem; right: 0.33rem; width: 0.13rem; height: 0.26rem; background-image: url(img/lALPBY0V46fX_UMnFQ_21_39.png); background-size: 100% 100%; }
+
+
+	</style>
+</head>
+<body>
+	<!--<div class="wait"><img src="https://i1.yongche.name/media/g1/M04/1F/04/rBEARFrfAWyIZnReAAAG-2B8lnYAAML8AP_-K8AAAdR727.gif"></div>-->
+	<div id="app">
+		<section>
+			<p class="routeritem">意见反馈 <router-link to="/myopinion"><span class="arrow"></span></router-link></p>
+    		<p class="routeritem mtop24">反馈记录<router-link to="/opinionlist"><span class="arrow"></span></router-link></p>
+		</section>
+		<router-view></router-view>
+	</div>
+	<template id="myopinion">
+		<div class="myopinion-wrapper">
+			<p class="choosetype">意见类型</p>
+			<p class="opiniontextarea">
+				
+			</p>
+			<div class="btn">提交</div>
+		</div>
+	</template>
+	<template id="opinionlist">
+		<div class="opinionlist-wrapper">
+			<ul>
+				<li class="opinionitem">
+					<p class="opiniontext">
+						<span class="opiniontype">恶意乘客</span>
+						<span class="opiniondate">2018-07-19   11:18:10</span>
+					</p>
+					<p class="kefu"></p>
+				</li>
+				<li class="opinionitem">
+					<p class="opiniontext">
+						<span class="opiniontype">订单相关</span>
+						<span class="opiniondate">2018-07-19   11:18:10</span>
+					</p>
+					<p class="kefu"></p>
+				</li>
+			</ul>
+		</div>
+	</template>
+<!--flexible.js-->
+<script src="https://i1.yongche.name/media/g4/M04/00/21/rBEDBVsaXZOIZtJ1AAAPg6xQb3EAAAM_gBNCnkAAA-b7128.js"></script>
+<script type="text/javascript" src='https://cdn.bootcss.com/vue/2.5.16/vue.min.js'></script>	
+<script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>	
+<script>
+var myopinion = {
+	path:'/myopinion',
+	name:'myopinion', 
+	component:{
+		template:'#myopinion',
+		data:function(){
+			return {
+				
+			}
+		},
+		mounted:function(){
+			
+		},
+		methods:function(){
+			
+		}
+	}
+}
+	
+var opinionlist = {
+	path:'/opinionlist',
+	name:'opinionlist', 
+	component:{
+		template:'#opinionlist',
+		data:function(){
+			return {
+				
+			}
+		},
+		mounted:function(){
+			
+		},
+		methods:function(){
+			
+		}
+	}
+}
+
+var router = new VueRouter({routes:[myopinion,opinionlist]}) ;
+new Vue({
+  	el: '#app',
+	data:{
+		bgimgurl:''
+	},
+	mounted: function(){
+		this.getData();
+	},
+	methods:{
+		isIpX:function(){
+			var u = navigator.userAgent;
+		    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		    if (isIOS) {        
+		        if (screen.height == 812 && screen.width == 375){
+		            return true;
+		        }else{
+		            return false
+		        } 
+		    }
+		},
+	  	getData:function(){
+	  		//接口获取图片地址
+	  		var url1 = 'https://cn.vuejs.org/images/logo.png';
+	  		var url2 = 'https://www.baidu.com/img/baidu_jgylogo3.gif';
+	  		this.bgimgurl = this.isIpX() ? url1 : url2;
+	  	}
+		
+  	},
+	router: router
+})
+			
+		</script>
+</body>
+</html>

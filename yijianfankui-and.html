@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, target-densitydpi=device-dpi, viewport-fit=cover">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>意见反馈</title>
+	
+	<style type="text/css">
+[v-cloak] {display: none;}
+html, body { position: relative; height: 100%;}
+body { background: #fafafa; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; color:#000; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+*{padding: 0;	margin: 0;	box-sizing: border-box;}
+ul,li{	list-style: none;} 
+a{ text-decoration: none; }
+.wait {width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 10; background-color: #fff; z-index: 99999 background-color: #eee; transition:opacity .3s linear;}
+.wait img {display: block; margin: 60% auto; width: 20%; height: auto;}
+
+.types-wrapper,.detailwrapper{
+	position: absolute; width: 100%; height: 100%;
+	top: 0; left: 0; right: 0; bottom: 0;
+	background: #EAEAEA;
+}	
+.routeritem{
+	margin-top: 0.2rem;
+	padding: 0 0.32rem;
+	height: 1.0rem;
+	font-size: 0.28rem;
+	line-height: 1.0rem;background: #FFFFFF; 
+}	
+	</style>
+</head>
+<body>
+	<!--<div class="wait"><img src="https://i1.yongche.name/media/g1/M04/1F/04/rBEARFrfAWyIZnReAAAG-2B8lnYAAML8AP_-K8AAAdR727.gif"></div>-->
+	<div id="app">
+		<section>
+			<router-link to="/types"><p class="routeritem">我有意见</p></router-link>
+    		<router-link to="/detail"><p class="routeritem">畅所欲言</p></router-link>
+		</section>
+		<router-view></router-view>
+	</div>
+	<template id="types">
+		<div class="types-wrapper">
+			<h3>请选择问题分类</h3>
+			<ul>
+				<router-link to="/detail"><li class="typeitem">升级、闪退、界面问题</li></router-link>
+				<router-link to="/detail"><li class="typeitem">登录、注册、升级专车、绑定设备</li></router-link>
+				<router-link to="/detail"><li class="typeitem">参与分、等级、好评率</li></router-link>
+				<router-link to="/detail"><li class="typeitem">个人信息、语音播报</li></router-link>
+			</ul>
+		</div>
+	</template>
+	<template id="detail">
+		<div class="detailwrapper">
+			<p>问题分类：升级、闪退、界面问题</p>
+			<p>问题详情描述（必填）</p>
+			<div class="content">
+				
+			</div>
+			<p>添加图片（选填，最多4张）</p>
+			<div class="picwrapper">
+				
+			</div>
+			<p>联系方式（选填）</p>
+		</div>
+	</template>
+<!--flexible.js-->
+<script src="https://i1.yongche.name/media/g4/M04/00/21/rBEDBVsaXZOIZtJ1AAAPg6xQb3EAAAM_gBNCnkAAA-b7128.js"></script>
+<script type="text/javascript" src='https://cdn.bootcss.com/vue/2.5.16/vue.min.js'></script>	
+<script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>	
+<script>
+var types = {
+	path:'/types',
+	name:'types', 
+	component:{
+		template:'#types',
+		data:function(){
+			return {
+				
+			}
+		},
+		mounted:function(){
+			
+		},
+		methods:function(){
+			
+		}
+	}
+}
+	
+var detail = {
+	path:'/detail',
+	name:'detail', 
+	component:{
+		template:'#detail',
+		data:function(){
+			return {
+				
+			}
+		},
+		mounted:function(){
+			
+		},
+		methods:function(){
+			
+		}
+	}
+}
+
+var router = new VueRouter({routes:[types,detail]}) ;
+new Vue({
+  	el: '#app',
+	data:{
+		bgimgurl:''
+	},
+	mounted: function(){
+		this.getData();
+	},
+	methods:{
+		isIpX:function(){
+			var u = navigator.userAgent;
+		    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		    if (isIOS) {        
+		        if (screen.height == 812 && screen.width == 375){
+		            return true;
+		        }else{
+		            return false
+		        } 
+		    }
+		},
+	  	getData:function(){
+	  		//接口获取图片地址
+	  		var url1 = 'https://cn.vuejs.org/images/logo.png';
+	  		var url2 = 'https://www.baidu.com/img/baidu_jgylogo3.gif';
+	  		this.bgimgurl = this.isIpX() ? url1 : url2;
+	  	}
+		
+  	},
+	router: router
+})
+			
+		</script>
+</body>
+</html>
