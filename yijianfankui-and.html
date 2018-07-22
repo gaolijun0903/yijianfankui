@@ -20,7 +20,7 @@ ul,li{	list-style: none;}
 a{ text-decoration: none; }
 .wait {width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 10; background-color: #fff; z-index: 99999 background-color: #eee; transition:opacity .3s linear;}
 .wait img {display: block; margin: 60% auto; width: 20%; height: auto;}
-
+#app{height: 100%;}
 .types-wrapper,.detailwrapper{
 	position: absolute; width: 100%; height: 100%;
 	top: 0; left: 0; right: 0; bottom: 0;
@@ -46,7 +46,7 @@ a{ text-decoration: none; }
 	</div>
 	<template id="types">
 		<div class="types-wrapper">
-			<h3>请选择问题分类</h3>
+			<p>请选择问题分类</p>
 			<ul>
 				<router-link to="/detail"><li class="typeitem">升级、闪退、界面问题</li></router-link>
 				<router-link to="/detail"><li class="typeitem">登录、注册、升级专车、绑定设备</li></router-link>

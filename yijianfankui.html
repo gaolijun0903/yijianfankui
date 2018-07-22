@@ -14,71 +14,120 @@
 	<style type="text/css">
 [v-cloak] {display: none;}
 html, body { position: relative; height: 100%;}
-body { background: #fafafa; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; color:#000; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body { background: #F0F0F0;; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; color:#000; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 *{padding: 0;	margin: 0;	box-sizing: border-box;}
 ul,li{	list-style: none;} 
 a{ text-decoration: none; }
 .wait {width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 10; background-color: #fff; z-index: 99999 background-color: #eee; transition:opacity .3s linear;}
 .wait img {display: block; margin: 60% auto; width: 20%; height: auto;}
+.bgborder{background: #FFFFFF; border-top: 0.01rem solid #E1E1E1; border-bottom: 0.01rem solid #E1E1E1;}
 
-.types-wrapper,.detailwrapper{
-	position: absolute; width: 100%; height: 100%;
-	top: 0; left: 0; right: 0; bottom: 0;
-	background: #EAEAEA;
-}	
-.routeritem{ position: relative;
-	margin-top: 0.34rem;
+#app{  padding-top: 0.1px;}
+.routerlist{ padding-top: 0.34rem;}
+.myopinion-wrapper,.opinionlist-wrapper{ position: absolute; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; background: #F0F0F0;; padding-top: 0.34rem;}	
+.routeritem,.choosetype{ position: relative;
+	margin-bottom: 0.24rem;
 	padding: 0 0.32rem;
 	height: 1.2rem;
 	font-size: 0.34rem; color: #323232;
-	line-height: 1.2rem; background: #FFFFFF; border-top: 0.01rem solid #E1E1E1; border-bottom: 0.01rem solid #E1E1E1;
+	line-height: 1.2rem; 
 }	
-.routeritem:after{display:block;clear:both;content:"";visibility:hidden;height:0}
-.mtop24{ margin-top: 0.24rem; }
-/*.text{
-	display: inline-block; vertical-align: middle;
-}*/
+.routeritem:after{ display:block;clear:both;content:"";visibility:hidden;height:0}
+
+.tips{ position: absolute; top: 0; right: 0.7rem; width: 2.1rem; height: 1.2rem; font-size: 0.3rem; color: #969696; text-align: right;}
 .arrow{ position: absolute; top: 0.47rem; right: 0.33rem; width: 0.13rem; height: 0.26rem; background-image: url(img/lALPBY0V46fX_UMnFQ_21_39.png); background-size: 100% 100%; }
+.opiniontextarea{ position: relative; padding: 0.25rem 0.32rem; height: 3.2rem; }
+.textcontainer{ height: 2.3rem;}
+/*.textcontainer:focus{outline: none;}*/
+.textcounter{ position: absolute;  bottom: 0.25rem; right: 0.32rem; font-size: 0.3rem; color: #C8C8C8;}
 
+.btnwrapper{ position: absolute; bottom: 0.32rem; width: 100%; height: 1.04rem;padding: 0 0.32rem; }
+.btn{ background: #FF5252;
+border-radius: 0.08rem; font-size: 0.34rem; line-height: 1.04rem; text-align: center;
+color: #FFFFFF;}
 
+.maskwrapper{ position: absolute; top: 0; bottom: 0; left: 0; right: 0; opacity: 0.75; background: #000000;}
+.maskinner{ width: 5.8rem; /*height: 7.09rem;*/ background: #ffffff; margin: 1.9rem auto 0; border-radius: 0.08rem;}
+.closebtn{ position: absolute; top: 1.2rem; right: 0.85rem; width: 0.38rem; height: 0.38rem; background-image: url(img/close.png);  background-size: 100% 100%;}   
+.masktitle{ margin: 0 auto; text-align: center; font-size: 0.36rem; font-weight: 600; color: #323232; line-height: 0.36rem; padding: 0.32rem 0 0.48rem;}  
+.typelist{ padding: 0 0.46rem;}  
+.typename{ display: inline-block; margin: 0 0.4rem 0.24rem 0; width: 2.2rem; height: 0.72rem; text-align: center; 
+    font-size: 0.36rem;
+    color: #323232;
+    line-height: 0.72rem; border: 0.01rem solid  #C8C8C8;
+border-radius: 0.08rem;}    
+.typename:nth-child(2n){ margin-right: 0; }
+.typename.chosen{ background: rgba(255,82,82,0.15);
+border: 1px solid #FF5252;
+border-radius: 0.08rem; color: #FF5252;}
+.typebtn{ margin-top: 0.24rem; text-align: center; height: 0.88rem; font-size: 0.36rem; line-height: 0.88rem; border-top: 1px solid  #E1E1E1; color: #1E82E6;}
+
+.opinionitem{ margin-bottom: 0.24rem; padding: 0.24rem 0.32rem;}	
+.opiniontext .opiniontype{ margin-right: 0.16rem; font-size: 0.34rem; color: #969696; line-height: 0.34rem; }
+.opiniondate{font-size: 0.26rem; color: #969696; line-height: 0.3rem;}
+.opiniondetail{ margin-top:0.32rem; font-size: 0.3rem; color: #323232; line-height: 0.3rem;}	
+.kefu{ margin: 0.12rem 0 0.04rem; height: 0.8rem;} 
+.kefu p{ display: inline-block; vertical-align: middle;}
+.kefutags{ width: 4.9rem; padding: 0 0.32rem; line-height: 0.8rem; font-size: 0.3rem; /*color: #1E82E6;*/ opacity: 0.1;
+background: #1E82E6;border-radius: 0.08rem; }
+.thumbicon{ margin-left: 0.24rem; width: 0.64rem; height: 0.64rem; background-size: 100% 100%;}
+.thumbup{ background-image: url(img/thumbup.png);}
+.thumbup.active{ background-image: url(img/thumbup-active.png);}
+.thumbdown{ background-image: url(img/thumbdown.png);}
+.thumbdown.active{ background-image: url(img/thumbdown-active.png);}
+.nolist{width: 2.94rem; height: 2.52rem; margin:3.28rem auto 0; background-image: url(img/nolist.png); background-size: 100% 100%; }
 	</style>
 </head>
 <body>
 	<!--<div class="wait"><img src="https://i1.yongche.name/media/g1/M04/1F/04/rBEARFrfAWyIZnReAAAG-2B8lnYAAML8AP_-K8AAAdR727.gif"></div>-->
 	<div id="app">
-		<section>
-			<p class="routeritem">意见反馈 <router-link to="/myopinion"><span class="arrow"></span></router-link></p>
-    		<p class="routeritem mtop24">反馈记录<router-link to="/opinionlist"><span class="arrow"></span></router-link></p>
+		<section class="routerlist">
+			<p class="routeritem bgborder">意见反馈 <router-link to="/myopinion"><span class="arrow"></span></router-link></p>
+    		<p class="routeritem bgborder">反馈记录<router-link to="/opinionlist"><span class="arrow"></span></router-link></p>
 		</section>
 		<router-view></router-view>
 	</div>
 	<template id="myopinion">
 		<div class="myopinion-wrapper">
-			<p class="choosetype">意见类型</p>
-			<p class="opiniontextarea">
-				
+			<p class="choosetype bgborder">
+				<span>意见类型</span>
+				<span class="tips">{{type}}</span>
+				<span class="arrow" @click="showTypelist"></span>
 			</p>
-			<div class="btn">提交</div>
+			<div class="opiniontextarea bgborder">
+				<div class="textcontainer" contenteditable="true"></div>
+				<div class="textcounter">0/300</div>
+			</div>
+			<div class="btnwrapper"><div class="btn" @click="submit">提交</div></div>
+			<div class="maskwrapper" v-if="isShow">
+				<div class="closebtn" @click="closeTypelist"></div>
+				<div class="maskinner">
+					<p class="masktitle">请选择反馈类型</p>
+					<ul class="typelist">
+						<li class="typename" :class="{'chosen':activeidx===idx}" @click="chooseType(idx)" v-for="(item,idx) in typesArr">{{item}}</li>
+					</ul>
+					<p class="typebtn" @click="sureToChoose">确定</p>
+				</div>
+			</div>
 		</div>
 	</template>
 	<template id="opinionlist">
 		<div class="opinionlist-wrapper">
-			<ul>
-				<li class="opinionitem">
+			<ul v-if="opinionlist.length">
+				<li class="opinionitem bgborder" v-for="(item,idx) in opinionlist">
 					<p class="opiniontext">
-						<span class="opiniontype">恶意乘客</span>
-						<span class="opiniondate">2018-07-19   11:18:10</span>
+						<span class="opiniontype">{{item.type}}</span>
+						<span class="opiniondate">{{item.time}}</span>
 					</p>
-					<p class="kefu"></p>
-				</li>
-				<li class="opinionitem">
-					<p class="opiniontext">
-						<span class="opiniontype">订单相关</span>
-						<span class="opiniondate">2018-07-19   11:18:10</span>
-					</p>
-					<p class="kefu"></p>
+					<p class="opiniondetail">{{item.detail}}</p>
+					<div class="kefu" v-if="item.isShowTags">
+						<p class="kefutags">我是客服正在处理</p>
+						<p class="thumbicon thumbup" :class="{'active':item.isThumbUp}" @click="useful(idx)"></p>
+						<p class="thumbicon thumbdown" :class="{'active':item.isThumbDown}" @click="useless(idx)"></p>
+					</div>
 				</li>
 			</ul>
+			<div class="nolist"  v-if="!opinionlist.length"></div>
 		</div>
 	</template>
 <!--flexible.js-->
@@ -94,14 +143,40 @@ var myopinion = {
 		template:'#myopinion',
 		data:function(){
 			return {
-				
+				isShow:false,
+				typesArr:['订单相关','软件问题','奖励规则','申诉相关','修改信息','恶意乘客','提现问题','客服相关','作弊举报','其他问题'],
+				hasChosen:false,
+				activeidx:'',
+				type:'请选择意见类型',
+				opiniontext:'',
+				textnum:''
 			}
 		},
 		mounted:function(){
 			
 		},
-		methods:function(){
-			
+		methods:{
+			showTypelist:function(){
+				this.isShow = true;
+			},
+			closeTypelist:function(){
+				this.isShow = false;
+				if(!this.hasChosen){ this.activeidx = ''; }
+			},
+			chooseType:function(idx){
+				this.activeidx = idx;
+			},
+			sureToChoose:function(){
+				if(this.activeidx===''){ alert('请选择意见类型'); return}
+				this.isShow = false;
+				this.type = this.typesArr[this.activeidx];
+				this.hasChosen = true;
+			},
+			submit:function(){
+				if(this.activeidx===''){ alert('请选择意见类型'); return}
+				console.log('type'+this.type)
+				console.log('opiniontext'+this.opiniontext)
+			}
 		}
 	}
 }
@@ -113,14 +188,37 @@ var opinionlist = {
 		template:'#opinionlist',
 		data:function(){
 			return {
-				
+				opinionlist:[]
 			}
 		},
 		mounted:function(){
-			
+			this.getOpinionlist();
 		},
-		methods:function(){
-			
+		methods:{
+			getOpinionlist:function(){
+				this.opinionlist = [
+					{type:'恶意乘客',time:'2018-07-19   11:18:10',detail:'有恶意乘客我要投诉',
+					isShowTags:false,isThumbUp:false,isThumbDown:false},
+					{type:'订单相关',time:'2018-07-19   11:18:10',detail:'接不到订单',
+					isShowTags:true,isThumbUp:true,isThumbDown:false},
+					{type:'恶意乘客',time:'2018-07-19   11:18:10',detail:'有恶意乘客我要投诉',
+					isShowTags:true,isThumbUp:false,isThumbDown:false}
+				]
+			},
+			useful:function(idx){
+				this.opinionlist[idx].isThumbUp = !this.opinionlist[idx].isThumbUp ;
+				if(this.opinionlist[idx].isThumbUp){
+					this.opinionlist[idx].isThumbDown = false;
+				}
+				//ajax提交
+			},
+			useless:function(idx){
+				this.opinionlist[idx].isThumbDown = !this.opinionlist[idx].isThumbDown ;
+				if(this.opinionlist[idx].isThumbDown){
+					this.opinionlist[idx].isThumbUp = false;
+				}
+				//ajax提交
+			}
 		}
 	}
 }
@@ -132,7 +230,7 @@ new Vue({
 		bgimgurl:''
 	},
 	mounted: function(){
-		this.getData();
+		
 	},
 	methods:{
 		isIpX:function(){
@@ -145,13 +243,7 @@ new Vue({
 		            return false
 		        } 
 		    }
-		},
-	  	getData:function(){
-	  		//接口获取图片地址
-	  		var url1 = 'https://cn.vuejs.org/images/logo.png';
-	  		var url2 = 'https://www.baidu.com/img/baidu_jgylogo3.gif';
-	  		this.bgimgurl = this.isIpX() ? url1 : url2;
-	  	}
+		}
 		
   	},
 	router: router
